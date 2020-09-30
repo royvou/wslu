@@ -26,6 +26,7 @@ jobs:
         with:
           distribution: ${{ matrix.distro }}
           additional-packages:
+            bash
             sudo 
             bc
             gzip
@@ -34,8 +35,6 @@ jobs:
             imagemagick
             bats
         name: Install WSL Distro
-      #- run: ./configure.sh
-      #  name: Configure Environment
         # TODO: Enable make test after test module is fixed.
       - run: bats -r tests
         name: Execute tests
