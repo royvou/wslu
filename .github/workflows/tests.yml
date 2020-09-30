@@ -19,9 +19,7 @@ jobs:
       run:
         # The default shell is changed to a WSL
         shell: wsl-bash {0}
-    steps:
-      - uses: actions/checkout@v2
-        name: Git Clone
+    steps:     
       - uses: Vampire/setup-wsl@v1
         with:
           distribution: ${{ matrix.distro }}
@@ -35,6 +33,8 @@ jobs:
             imagemagick
             bats
         name: Install WSL Distro
+      - uses: actions/checkout@v2
+        name: Git Clone
         # TODO: Enable make test after test module is fixed.
       - run: bats -r tests
         name: Execute tests
