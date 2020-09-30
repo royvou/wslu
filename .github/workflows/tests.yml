@@ -34,6 +34,6 @@ jobs:
         name: Git Clone
         # TODO: Enable make test after test module is fixed.
       - run: | 
-          bats -r tests
+          wsl bats -r tests
         name: Execute tests
-        shell: wsl-bash {0}
+        shell: powershell
