@@ -34,7 +34,6 @@ jobs:
         name: Git Clone
         # TODO: Enable make test after test module is fixed.
       - run: | 
-          dos2unix ./**
           bats -r tests
         name: Execute tests
         shell: wsl-bash {0}

@@ -2,7 +2,7 @@ AUTOMAKE_OPTIONS = foreign
 DESTDIR ?=
 PREFIX ?= /usr
 
-HEADER = src/wslu-header
+HEADER = src/wslu-header.sh
 OUTPATH = out
 MANPATH = docs
 OUTMANPATH = out-docs
