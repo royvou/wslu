@@ -34,4 +34,4 @@ jobs:
         # TODO: Enable make test after test module is fixed.
       - run: wsl bats -r tests
         name: Execute tests
-        shell: wsl-bash
+        shell: wsl-bash {0}
