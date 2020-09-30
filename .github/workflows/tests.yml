@@ -17,6 +17,7 @@ jobs:
     runs-on: windows-2019
     defaults:
       run:
+        # The default shell is changed to a WSL based shell
         shell: wsl-bash {0}
     steps:
       - uses: actions/checkout@v2
@@ -30,9 +31,7 @@ jobs:
             make
             imagemagick
             bats
-        name: Configure WSL Distro
-      - run: ./configure.sh
-        name: Configure Environment
+        name: Install WSL Distro
         # TODO: Enable make test after test module is fixed.
       - run: bats -r tests
         name: Execute tests
