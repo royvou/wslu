@@ -32,6 +32,6 @@ jobs:
       - uses: actions/checkout@v2
         name: Git Clone
         # TODO: Enable make test after test module is fixed.
-      - run: wsl bats -r tests
+      - run: bats -r tests
         name: Execute tests
         shell: wsl-bash {0}
