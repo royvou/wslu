@@ -17,7 +17,7 @@ jobs:
     runs-on: windows-2019
     defaults:
       run:
-        # The default shell is changed to a WSL based shell
+        # The default shell is changed to a WSL
         shell: wsl-bash {0}
     steps:
       - uses: actions/checkout@v2
@@ -25,13 +25,17 @@ jobs:
       - uses: Vampire/setup-wsl@v1
         with:
           distribution: ${{ matrix.distro }}
-          additional-packages: 
+          additional-packages:
+            sudo 
             bc
             gzip
             make
+            bash-completion
             imagemagick
             bats
         name: Install WSL Distro
+      - run: ./configure.sh
+        name: Configure Environment
         # TODO: Enable make test after test module is fixed.
       - run: bats -r tests
         name: Execute tests
